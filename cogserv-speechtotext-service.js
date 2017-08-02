@@ -31,7 +31,7 @@ translatorService.prototype._requestAccessToken = function(callback) {
   debug('requesting access token for translation endpoint');
    
   // request token
-  request.post(postRequest, function(error, response, body) {
+  request.post(postRequest, (error, response, body) => {
     return callback(error, body);
   }); 
 };
@@ -41,14 +41,14 @@ translatorService.prototype._connectToWebsocket = function(accessToken, callback
   ws = new wsClient();
       
   // event for connection failure
-  ws.once('connectFailed', function (error) {
+  ws.once('connectFailed', (error) => {
     debug('connection to translation endpoint failed:', error);
 
     return callback(error);
   });
               
   // event for connection success
-  ws.once('connect', function (connection) {
+  ws.once('connect', (connection) => {
     debug('connection to translation endpoint succeeded');
 
     this.connection = connection;
@@ -64,17 +64,16 @@ translatorService.prototype._connectToWebsocket = function(accessToken, callback
 };
 
 translatorService.prototype.start = function(callback) {
-  const _this = this;
   if (this.subscriptionKey === undefined) {
     const error = new Error('Missing subscriptionKey option - please find your key via the Azure portal.');
     return callback(error);
   };
 
-  this._requestAccessToken(function(error, accessToken) {
+  this._requestAccessToken((error, accessToken) => {
     if (error) return callback(error);
     debug('acquired access token for translation endpoint');
 
-    _this._connectToWebsocket(accessToken, callback); 
+    this._connectToWebsocket(accessToken, callback); 
   });
 };
 
