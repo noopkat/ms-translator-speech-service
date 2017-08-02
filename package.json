@@ -1,0 +1,33 @@
+{
+  "name": "cogserv-speechtotext-service",
+  "version": "1.0.0",
+  "description": "NodeJS service wrapper for Microsoft Translator Speech API",
+  "main": "cogserv-speechtotext-service.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noopkat/cogserv-speechtotext-service.git"
+  },
+  "keywords": [
+    "Cognitive",
+    "Services",
+    "Microsoft",
+    "Translator",
+    "speech",
+    "to",
+    "text"
+  ],
+  "author": "Suz Hinton",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/noopkat/cogserv-speechtotext-service/issues"
+  },
+  "homepage": "https://github.com/noopkat/cogserv-speechtotext-service#readme",
+  "dependencies": {
+    "debug": "^2.6.8",
+    "request": "^2.81.0",
+    "websocket": "^1.0.24"
+  }
+}
