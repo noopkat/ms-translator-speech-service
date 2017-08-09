@@ -1,7 +1,7 @@
 # Cognitive Services Speech to Text Service
 NodeJS service wrapper for Microsoft Translator Speech API
 
-`npm install cogserv-speechtotext-service`
+`npm install ms-translator-speech-service`
 
 This service wrapper supports the speech to text functionality of the Microsoft Translator API.
 
@@ -9,7 +9,7 @@ This service wrapper supports the speech to text functionality of the Microsoft 
 
 1. Install [NodeJS](http://nodejs.org) on your computer
 2. Create a new directory for your code project if you haven't already
-2. Open a terminal and run `npm install cogserv-speechtotext-service` from your project directory
+2. Open a terminal and run `npm install ms-translator-speech-service` from your project directory
 
 ## Usage
 
@@ -18,7 +18,7 @@ You'll first need to [create a Microsoft Translator Speech API key](https://www.
 The following code will get you up and running with the essentials:
 
 ```js
-const translationService = require('cogserv-speechtotext-service');
+const translationService = require('ms-translator-speech-service');
 
 const options = {
   subscriptionKey: '<your api key>',
@@ -46,7 +46,7 @@ See the [API section](#api-reference) of these docs for details on configuration
 **Scenario: translating an existing audio speech file.** Remember to check the [Translation API docs](http://docs.microsofttranslator.com/speech-translate.html) for details on the audio data format needed.
 
 ```js
-const translationService = require('cogserv-speechtotext-service');
+const translationService = require('ms-translator-speech-service');
 
 // set up and connect to Translator API
 const options = {

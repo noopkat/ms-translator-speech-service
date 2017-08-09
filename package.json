@@ -1,8 +1,8 @@
 {
-  "name": "cogserv-speechtotext-service",
+  "name": "ms-translator-speech-service",
   "version": "1.0.0",
   "description": "NodeJS service wrapper for Microsoft Translator Speech API",
-  "main": "cogserv-speechtotext-service.js",
+  "main": "ms-translator-speech-service.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
