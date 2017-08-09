@@ -28,6 +28,7 @@
   "dependencies": {
     "debug": "^2.6.8",
     "request": "^2.81.0",
+    "stream-buffers": "^3.0.1",
     "websocket": "^1.0.24"
   }
 }

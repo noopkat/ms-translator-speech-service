@@ -1,6 +1,9 @@
 const debug = require('debug')('translationService');
+const fs = require('fs');
+const path = require('path');
 const request = require('request');
 const wsClient = require('websocket').client;
+const streamBuffers = require('stream-buffers');
 
 const translatorService = function init(options) {
   this.apiVersion = options.apiVersion || '1.0';
@@ -52,6 +55,8 @@ translatorService.prototype._connectToWebsocket = function(accessToken, callback
     debug('connection to translation endpoint succeeded');
 
     this.connection = connection;
+    
+    this.connection.sendFile = sendFile;
 
     // return the successful socket connection for use 
     return callback(null, connection);	
@@ -82,6 +87,32 @@ translatorService.prototype.stop = function(callback) {
   this.connection.once('close', callback);
   this.connection.close();
   debug('closed translation endpoint connection');
+};
+
+const sendFile = function(filepath, callback) {
+  let absoluteFilepath;
+
+  fs.access(filepath, (error) => {
+    if (error) return callback(new Error(`could not find file ${filepath}`));
+
+    absoluteFilepath = path.resolve(filepath);
+
+    const options = {
+      frequency: 100, 
+      chunkSize: 32000 
+    };
+
+    const audioStream = new streamBuffers.ReadableStreamBuffer(options);
+    
+    audioStream.put(fs.readFileSync(absoluteFilepath));
+    
+    // add some silences at the end to tell the service that it is the end of the sentence
+    audioStream.put(new Buffer(160000));
+    audioStream.stop();
+
+    audioStream.on('data', (data) => this.sendBytes(data));
+    audioStream.on('end', () => {if (callback) return callback()});
+  });
 };
 
 // WIP
