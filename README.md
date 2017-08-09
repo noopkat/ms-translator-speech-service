@@ -1,9 +1,9 @@
 # Microsoft Translator Speech to Text Service
-(Unofficial) NodeJS service wrapper for Microsoft Translator Speech API
+(Unofficial) NodeJS service wrapper for [Microsoft Translator Speech API](https://www.microsoft.com/en-us/translator/speech.aspx)
 
 `npm install ms-translator-speech-service`
 
-This service wrapper supports the speech to text functionality of the Microsoft Translator API.
+This service wrapper supports the speech to text functionality of the [Microsoft Translator API](https://www.microsoft.com/en-us/translator/speech.aspx).
 
 ## Installation
 
