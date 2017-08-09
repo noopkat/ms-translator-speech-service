@@ -1,5 +1,5 @@
-# Cognitive Services Speech to Text Service
-NodeJS service wrapper for Microsoft Translator Speech API
+# Micorsoft Translator Speech to Text Service
+(Unofficial) NodeJS service wrapper for Microsoft Translator Speech API
 
 `npm install ms-translator-speech-service`
 
