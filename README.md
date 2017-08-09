@@ -31,6 +31,7 @@ const options = {
 };
 
 const translator = new translationService(options);
+
 translator.start((error, service) => {
   if (!error) {
     console.log('translator service started.');
@@ -56,6 +57,7 @@ const options = {
 };
 
 const translator = new translationService(options);
+
 translator.start((error, service) => {
   if (error) return console.error(error);
 
@@ -66,8 +68,6 @@ translator.start((error, service) => {
 
   service.sendFile('/path/to/audio.wav');
 
-  audioStream.on('data', (data) => service.sendBytes(data));
-  audioStream.on('end', () => translator.stop());
 });
 
 ```
