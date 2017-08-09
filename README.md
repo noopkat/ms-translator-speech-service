@@ -1,4 +1,4 @@
-# Micorsoft Translator Speech to Text Service
+# Microsoft Translator Speech to Text Service
 (Unofficial) NodeJS service wrapper for Microsoft Translator Speech API
 
 `npm install ms-translator-speech-service`
