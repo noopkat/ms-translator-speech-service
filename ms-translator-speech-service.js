@@ -7,12 +7,17 @@ const streamBuffers = require('stream-buffers');
 const uuid = require('uuid/v4');
 
 const translatorService = function init(options) {
-  this.apiVersion = options.apiVersion || '1.0';
-  this.subscriptionKey = options.subscriptionKey;
-  this.fromLanguage = options.fromLanguage || 'en';
-  this.toLanguage = options.toLanguage || 'en';
-  this.clientTraceId = uuid();
-  this.features = options.features || {};
+  const defaultOptions = {
+    apiVersion: '1.0',
+    fromLanguage: 'en',
+    toLanguage: 'en',
+    features: {},
+    profanityAction: 'Marked',
+    profanityMarker: 'Asterisk',
+    clientTraceId: uuid()
+  };
+
+  Object.assign(this, defaultOptions, options);
   
   const featureStrings = Object.keys(this.features).filter((key) => {
     return !!this.features[key];
@@ -21,7 +26,8 @@ const translatorService = function init(options) {
   const featureQueryString = featureStrings.length ? `&features=${featureStrings.join(',')}` : '';
   
   const speechTranslateShortUrl = 'wss://dev.microsofttranslator.com/speech/translate';
-  this.speechTranslateUrl = `${speechTranslateShortUrl}?api-version=${this.apiVersion}&from=${this.fromLanguage}&to=${this.toLanguage}${featureQueryString}`;
+  this.speechTranslateUrl = `${speechTranslateShortUrl}?api-version=${this.apiVersion}&from=${this.fromLanguage}&to=${this.toLanguage}${featureQueryString}&ProfanityMarker=${this.profanityMarker}&ProfanityAction=${this.profanityAction}`;
+  
   this.issueTokenUrl = 'https://api.cognitive.microsoft.com/sts/v1.0/issueToken';
 };
 

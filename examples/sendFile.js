@@ -5,7 +5,7 @@ const translationService = require('../ms-translator-speech-service');
 // set up and connect to Translator API
 const options = {
   subscriptionKey: process.env.TRANSLATION_KEY,
-  toLanguage: 'en',
+  toLanguage: 'fr',
   fromLanguage: 'en'
 };
 

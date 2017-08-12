@@ -102,6 +102,8 @@ Available options are below:
 | `features`                | `Object`  | additional features needed from the API                                                                  | `{}`    | no       |
 | `partial`    | `Boolean` | defined under the `features` option. Returns partial translation results in additional to final results. | `false` | no       |
 | `timinginfo` | `Boolean` | defined under the `features` option. Returns timing info in translation results.                         | `false` | no       |
+| `profanityAction` | `String` | type of profanity handling you want in the translation results. Choose from `Marked`, `Deleted`, or `NoAction`                          | `Marked` | no       |
+| `profanityMarker` | `String` | type of profanity marker you want if you have specified profanities to be marked. Choose from `Asterisk`, or `Tag`                          | `Asterisk` | no       |
 
 
 ### translator.start(callback)
