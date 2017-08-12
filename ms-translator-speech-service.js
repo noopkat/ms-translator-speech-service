@@ -4,12 +4,14 @@ const path = require('path');
 const request = require('request');
 const wsClient = require('websocket').client;
 const streamBuffers = require('stream-buffers');
+const uuid = require('uuid/v4');
 
 const translatorService = function init(options) {
   this.apiVersion = options.apiVersion || '1.0';
   this.subscriptionKey = options.subscriptionKey;
   this.fromLanguage = options.fromLanguage || 'en';
   this.toLanguage = options.toLanguage || 'en';
+  this.clientTraceId = uuid();
   this.features = options.features || {};
   
   const featureStrings = Object.keys(this.features).filter((key) => {
@@ -63,7 +65,11 @@ translatorService.prototype._connectToWebsocket = function(accessToken, callback
   });
  
   debug('connecting to translation endpoint');
-    
+   
+   const wsheaders = {
+     'X-ClientTraceId': this.clientTraceId,
+     'Authorization': `Bearer ${accessToken}`
+   };
   // connect to the service
   ws.connect(this.speechTranslateUrl, null, null, { 'Authorization': `Bearer ${accessToken}` });
 };
@@ -93,7 +99,9 @@ const sendFile = function(filepath, callback) {
   let absoluteFilepath;
 
   fs.access(filepath, (error) => {
-    if (error) return callback(new Error(`could not find file ${filepath}`));
+    if (error) {
+      return callback ? callback(new Error(`could not find file ${filepath}`)) : null;
+    }
 
     absoluteFilepath = path.resolve(filepath);
 
