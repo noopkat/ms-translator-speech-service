@@ -47,7 +47,7 @@ See the [API section](#api-reference) of these docs for details on configuration
 **Scenario: translating an existing audio speech file.** Remember to check the [Translation API docs](http://docs.microsofttranslator.com/speech-translate.html) for details on the audio data format needed.
 
 ```js
-const translationService = require('../ms-translator-speech-service');
+const translationService = require('ms-translator-speech-service');
 
 // set up and connect to Translator API
 const options = {
