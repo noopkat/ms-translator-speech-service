@@ -111,15 +111,17 @@ const sendFile = function(filepath, callback) {
     };
 
     const audioStream = new streamBuffers.ReadableStreamBuffer(options);
-    
-    audioStream.put(fs.readFileSync(absoluteFilepath));
-    
-    // add some silences at the end to tell the service that it is the end of the sentence
-    audioStream.put(new Buffer(160000));
-    audioStream.stop();
 
-    audioStream.on('data', (data) => this.sendBytes(data));
-    audioStream.on('end', () => {if (callback) return callback()});
+    fs.readFile(absoluteFilepath, (error, file) => {
+      audioStream.put(file);
+
+      // add some silences at the end to tell the service that it is the end of the sentence
+      audioStream.put(new Buffer(160000));
+      audioStream.stop();
+
+      audioStream.on('data', (data) => this.sendBytes(data));
+      audioStream.on('end', () => {if (callback) return callback()});
+    });
   });
 };
 
