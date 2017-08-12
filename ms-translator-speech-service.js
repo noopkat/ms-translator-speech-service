@@ -71,7 +71,7 @@ translatorService.prototype._connectToWebsocket = function(accessToken, callback
      'Authorization': `Bearer ${accessToken}`
    };
   // connect to the service
-  ws.connect(this.speechTranslateUrl, null, null, { 'Authorization': `Bearer ${accessToken}` });
+  ws.connect(this.speechTranslateUrl, null, null, wsheaders);
 };
 
 translatorService.prototype.start = function(callback) {
