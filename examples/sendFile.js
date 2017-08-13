@@ -1,3 +1,4 @@
+'use strict';
 // dotenv is a convenient way to load env variables from a local .env file
 require('dotenv').config();
 const translationService = require('../ms-translator-speech-service');

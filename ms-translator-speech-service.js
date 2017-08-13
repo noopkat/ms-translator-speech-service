@@ -1,3 +1,4 @@
+'use strict';
 const debug = require('debug')('translationService');
 const request = require('request');
 const wsClient = require('websocket').client;
