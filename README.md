@@ -1,9 +1,12 @@
+[![Travis](https://img.shields.io/travis/noopkat/ms-translator-speech-service.svg?style=flat-square)](https://www.travis-ci.org/noopkat/ms-translator-speech-service)
+
 # Microsoft Translator Speech to Text Service
 (Unofficial) NodeJS service wrapper for [Microsoft Translator Speech API](https://www.microsoft.com/en-us/translator/speech.aspx)
 
 `npm install ms-translator-speech-service`
 
 This service wrapper supports the speech to text functionality of the [Microsoft Translator API](https://www.microsoft.com/en-us/translator/speech.aspx).
+
 
 ## Installation
 
