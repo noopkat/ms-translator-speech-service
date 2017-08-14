@@ -1,6 +1,6 @@
 {
   "name": "ms-translator-speech-service",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "NodeJS service wrapper for Microsoft Translator Speech API",
   "main": "ms-translator-speech-service.js",
   "scripts": {
