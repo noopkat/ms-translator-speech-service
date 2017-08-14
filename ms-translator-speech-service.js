@@ -13,6 +13,8 @@ const translatorService = function init(options) {
     features: {},
     profanityAction: 'Marked',
     profanityMarker: 'Asterisk',
+    voice: '',
+    format: '',
     clientTraceId: uuid()
   };
 
@@ -22,10 +24,10 @@ const translatorService = function init(options) {
     return !!this.features[key];
   });
 
-  const featureQueryString = featureStrings.length ? `&features=${featureStrings.join(',')}` : '';
+  const featureQueryString = featureStrings.length ? `&features=${featureStrings.join(',').toLowerCase()}` : '';
   
   const speechTranslateShortUrl = 'wss://dev.microsofttranslator.com/speech/translate';
-  this.speechTranslateUrl = `${speechTranslateShortUrl}?api-version=${this.apiVersion}&from=${this.fromLanguage}&to=${this.toLanguage}${featureQueryString}&ProfanityMarker=${this.profanityMarker}&ProfanityAction=${this.profanityAction}`;
+  this.speechTranslateUrl = `${speechTranslateShortUrl}?api-version=${this.apiVersion}&from=${this.fromLanguage}&to=${this.toLanguage}${featureQueryString}&ProfanityMarker=${this.profanityMarker}&ProfanityAction=${this.profanityAction}&voice=${this.voice}&format=${this.format}`;
   
   this.issueTokenUrl = 'https://api.cognitive.microsoft.com/sts/v1.0/issueToken';
 };

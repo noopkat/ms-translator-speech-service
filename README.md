@@ -29,7 +29,7 @@ const options = {
   fromLanguage: 'en',
   features: {
     partial: false,
-    timinginfo: true
+    timingInfo: true
   }
 };
 
@@ -81,6 +81,14 @@ translator.start((error, service) => {
 
 ```
 
+### More Examples:
+
+The following additional examples can be found in the examples directory: 
+
++ [Profanity handling](examples/profanity.js)
++ [Text to Speech](examples/tospeech.js)
+
+Clone this repo, run `npm install` and you'll be able to run them.
 
 ## API Reference
 
@@ -104,9 +112,12 @@ Available options are below:
 | `toLanguage`                  | `String`  | the language you want to translate to. See supported languages in the [official Microsoft Translator API docs](https://www.microsoft.com/en-us/translator/languages.aspx).                                                                    | `'en'`  | no       |
 | `features`                | `Object`  | additional features needed from the API                                                                  | `{}`    | no       |
 | `partial`    | `Boolean` | defined under the `features` option. Returns partial translation results in additional to final results. | `false` | no       |
-| `timinginfo` | `Boolean` | defined under the `features` option. Returns timing info in translation results.                         | `false` | no       |
+| `timingInfo` | `Boolean` | defined under the `features` option. Returns timing info in translation results.                         | `false` | no       |
+| `textToSpeech` | `Boolean` | defined under the `features` option. Returns binary audio messages in addition to text translation messages.                         | `false` | no       |
 | `profanityAction` | `String` | type of profanity handling you want in the translation results. Choose from `Marked`, `Deleted`, or `NoAction`                          | `Marked` | no       |
 | `profanityMarker` | `String` | type of profanity marker you want if you have specified profanities to be marked. Choose from `Asterisk`, or `Tag`                          | `Asterisk` | no       |
+| `voice` | `String` | name of the voice you'd like the text to speech to be created with. Must have `textToSpeech` set to `true` in `features` option. See supported voices in the [official Microsoft Translator API docs](http://docs.microsofttranslator.com/languages.html)                          | `''` | no       |
+| `format` | `String` | file format you'd like the text to speech to be returned as. Choose from `audio/wav` or `audio/mp3`                          | `audio/wav` | no       |
 
 
 ### translator.start(callback)
