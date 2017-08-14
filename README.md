@@ -181,9 +181,14 @@ service.on('message', (message) => {
 });
 
 /*
- Example message payload:
+ Example text message payload:
 
  {"type": "utf8", "utf8Data": '{"type":"final","id":"0","recognition":"Hello world","translation":"Hello world"}'}
+ 
+ Example audio binary message (text to speech feature) payload:
+
+ { type: 'binary',
+  binaryData: <Buffer 52 49 46 46 86 4c 01 00 57 41 56 45 66 6d 74 20 12 00 00 00 3e ... > }
 
 */
 
