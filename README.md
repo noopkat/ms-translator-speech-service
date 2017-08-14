@@ -22,7 +22,7 @@ const translationService = require('ms-translator-speech-service');
 
 const options = {
   subscriptionKey: '<your api key>',
-  toLanguage: 'en',
+  toLanguage: 'fr',
   fromLanguage: 'en',
   features: {
     partial: false,
@@ -52,7 +52,7 @@ const translationService = require('ms-translator-speech-service');
 // set up and connect to Translator API
 const options = {
   subscriptionKey: '<your api key>',
-  toLanguage: 'en',
+  toLanguage: 'fr',
   fromLanguage: 'en'
 };
 
