@@ -48,7 +48,7 @@ translatorService.prototype._requestAccessToken = function(callback) {
 
 translatorService.prototype._connectToWebsocket = function(accessToken, callback) {
   // create new client
-  ws = new wsClient();
+  const ws = new wsClient();
       
   // event for connection failure
   ws.once('connectFailed', (error) => {
