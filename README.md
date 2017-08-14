@@ -5,9 +5,6 @@
 
 `npm install ms-translator-speech-service`
 
-This service wrapper supports the speech to text functionality of the [Microsoft Translator API](https://www.microsoft.com/en-us/translator/speech.aspx).
-
-
 ## Installation
 
 1. Install [NodeJS](http://nodejs.org) on your computer
