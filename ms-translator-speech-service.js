@@ -25,9 +25,11 @@ const translatorService = function init(options) {
   });
 
   const featureQueryString = featureStrings.length ? `&features=${featureStrings.join(',').toLowerCase()}` : '';
+  const voiceQueryString = this.voice.length ? `&voice=${this.voice}` : '';
+  const formatQueryString = this.format.length? `&format=${this.format}` : '';
   
   const speechTranslateShortUrl = 'wss://dev.microsofttranslator.com/speech/translate';
-  this.speechTranslateUrl = `${speechTranslateShortUrl}?api-version=${this.apiVersion}&from=${this.fromLanguage}&to=${this.toLanguage}${featureQueryString}&ProfanityMarker=${this.profanityMarker}&ProfanityAction=${this.profanityAction}&voice=${this.voice}&format=${this.format}`;
+  this.speechTranslateUrl = `${speechTranslateShortUrl}?api-version=${this.apiVersion}&from=${this.fromLanguage}&to=${this.toLanguage}${featureQueryString}&ProfanityMarker=${this.profanityMarker}&ProfanityAction=${this.profanityAction}${voiceQueryString}${formatQueryString}`;
   
   this.issueTokenUrl = 'https://api.cognitive.microsoft.com/sts/v1.0/issueToken';
 };

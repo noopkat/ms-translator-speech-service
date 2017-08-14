@@ -34,7 +34,7 @@ test('[ms-translator-speech-service] translation url construction', function (t)
   };
 
   const translator = new translationService(options);
-  const url = 'wss://dev.microsofttranslator.com/speech/translate?api-version=1.0&from=fr&to=fr&features=timinginfo,partial&ProfanityMarker=Tag&ProfanityAction=Marked&voice=&format=';
+  const url = 'wss://dev.microsofttranslator.com/speech/translate?api-version=1.0&from=fr&to=fr&features=timinginfo,partial&ProfanityMarker=Tag&ProfanityAction=Marked';
 
   t.equal(translator.speechTranslateUrl, url, 'url is constructed correctly');
 });
