@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/noopkat/cogserv-speechtotext-service.git"
+    "url": "git+https://github.com/noopkat/ms-translator-speech-service.git"
   },
   "keywords": [
     "Cognitive",
