@@ -4,6 +4,7 @@ const request = require('request');
 const wsClient = require('websocket').client;
 const uuid = require('uuid/v4');
 const sendFile = require('./lib/send-file');
+const sendStream = require('./lib/send-stream');
 
 const translatorService = function init(options) {
   const defaultOptions = {
@@ -68,6 +69,7 @@ translatorService.prototype._connectToWebsocket = function(accessToken, callback
     this.connection = connection;
     
     this.connection.sendFile = sendFile;
+    this.connection.sendStream = sendStream;
 
     // return the successful socket connection for use 
     return callback(null, connection);	
