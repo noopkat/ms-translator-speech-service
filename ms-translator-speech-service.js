@@ -16,7 +16,8 @@ const translatorService = function init(options) {
     profanityMarker: 'Asterisk',
     voice: '',
     format: '',
-    clientTraceId: uuid()
+    clientTraceId: uuid(),
+    correlationId: null
   };
 
   Object.assign(this, defaultOptions, options);
@@ -27,10 +28,11 @@ const translatorService = function init(options) {
 
   const featureQueryString = featureStrings.length ? `&features=${featureStrings.join(',').toLowerCase()}` : '';
   const voiceQueryString = this.voice.length ? `&voice=${this.voice}` : '';
-  const formatQueryString = this.format.length? `&format=${this.format}` : '';
+  const formatQueryString = this.format.length ? `&format=${this.format}` : '';
+  const correlationQueryString = this.correlationId ? `&X-CorrelationId=${this.correlationId}` : '';
   
   const speechTranslateShortUrl = 'wss://dev.microsofttranslator.com/speech/translate';
-  this.speechTranslateUrl = `${speechTranslateShortUrl}?api-version=${this.apiVersion}&from=${this.fromLanguage}&to=${this.toLanguage}${featureQueryString}&ProfanityMarker=${this.profanityMarker}&ProfanityAction=${this.profanityAction}${voiceQueryString}${formatQueryString}`;
+  this.speechTranslateUrl = `${speechTranslateShortUrl}?api-version=${this.apiVersion}&from=${this.fromLanguage}&to=${this.toLanguage}${featureQueryString}&ProfanityMarker=${this.profanityMarker}&ProfanityAction=${this.profanityAction}${voiceQueryString}${formatQueryString}${correlationQueryString}`;
   
   this.issueTokenUrl = 'https://api.cognitive.microsoft.com/sts/v1.0/issueToken';
 };
