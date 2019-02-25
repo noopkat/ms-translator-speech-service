@@ -1,4 +1,8 @@
-[![Travis](https://img.shields.io/travis/noopkat/ms-translator-speech-service.svg?style=flat-square)](https://www.travis-ci.org/noopkat/ms-translator-speech-service)
+![deprecated label](https://img.shields.io/badge/status-deprecated-red.svg)
+
+**This library is now deprecated due to Microsoft's release of an official websocket supported [NodeJS/JavaScript SDK for Microsoft Speech Service](https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk). Please use that instead of this. Thanks! 🙇🏼‍♀️**
+
+---
 
 # Microsoft Translator Speech to Text Service
 (Unofficial) NodeJS service wrapper for [Microsoft Translator Speech API](https://www.microsoft.com/en-us/translator/speech.aspx)
